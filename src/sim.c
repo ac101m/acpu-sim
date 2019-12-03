@@ -13,17 +13,17 @@
 
 
 int main(int argc, char** argv) {
-  char* sourceFile = ACPU_SIM_DEFAULT_BINARY_NAME;
-  int addressWidth = ACPU_SIM_DEFAULT_ADDRESS_BITS;
+  char* binary_file = ACPU_SIM_DEFAULT_BINARY_NAME;
+  int address_width = ACPU_SIM_DEFAULT_ADDRESS_BITS;
 
   /* Parse command line parameters
      very crude implementation for now, gotta go fast */
-    sourceFile = argv[1];
   if(argc > 1) {
+    binary_file = argv[1];
   }
 
-    addressWidth = atoi(argv[2]);
   if(argc > 2) {
+    address_width = atoi(argv[2]);
   }
 
   /* Create memory of the apropriate size */
