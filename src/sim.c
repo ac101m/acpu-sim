@@ -21,10 +21,13 @@ int main(int argc, char** argv) {
 
   /* Parse command line parameters
      very crude implementation for now, gotta go fast */
+
+  /* Binary file to execute */
   if(argc > 1) {
     binary_file = argv[1];
   }
 
+  /* Number of address bits to use */
   if(argc > 2) {
     address_width = atoi(argv[2]);
     if(address_width > ACPU_SIM_MAX_ADDRESS_BITS) {
