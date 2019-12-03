@@ -18,12 +18,12 @@ int main(int argc, char** argv) {
 
   /* Parse command line parameters
      very crude implementation for now, gotta go fast */
-  if(argc > 2) {
     sourceFile = argv[1];
+  if(argc > 1) {
   }
 
-  if(argc > 3) {
     addressWidth = atoi(argv[2]);
+  if(argc > 2) {
   }
 
   /* Create memory of the apropriate size */
