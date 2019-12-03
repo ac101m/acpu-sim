@@ -1,12 +1,12 @@
-// Internal
+/* Internal */
 #include <machine/instruction.h>
 #include <machine/memory.h>
 
-// Standard
+/* Standard */
 #include <stdio.h>
 
 
-// Default configurations for the simulator
+/* Default configurations for the simulator */
 #define ACPU_SIM_DEFAULT_BINARY_NAME "program.bin"
 #define ACPU_SIM_DEFAULT_ADDRESS_BITS 32
 
