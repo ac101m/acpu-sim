@@ -4,6 +4,7 @@
 
 /* Standard */
 #include <stdio.h>
+#include <stdlib.h>
 
 
 /* Default configurations for the simulator */
