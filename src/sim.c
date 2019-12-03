@@ -1,6 +1,6 @@
 /* Internal */
-#include <machine/instruction.h>
-#include <machine/memory.h>
+#include "machine/instruction.h"
+#include "machine/memory.h"
 
 /* Standard */
 #include <stdio.h>
