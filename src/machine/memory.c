@@ -20,13 +20,17 @@ void initMemory(Memory_t *const memory, unsigned const address_width) {
   }
 
   /* Break address field into page and offset */
+  memory->address_width = address_width;
   memory->page_offset_width = address_width / 2;
   memory->page_index_width = address_width - memory->page_offset_width;
 
+  /* Initialise address widths */
   memory->size = 0x01 << address_width;
   memory->page_size = 0x01 << memory->page_offset_width;
   memory->page_count = 0x01 << memory->page_index_width;
 
+  /* Initialise address masks */
+  memory->address_mask = memory->size - 1;
   memory->page_offset_mask = memory->page_size - 1;
   memory->page_index_mask = (memory->page_count - 1) << memory->page_offset_width;
 
