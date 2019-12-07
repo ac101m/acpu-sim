@@ -9,6 +9,8 @@ typedef struct {
   void **pages;
   uint32_t page_offset_width;
   uint32_t page_index_width;
+  uint32_t page_offset_mask;
+  uint32_t page_index_mask;
 } Memory_t;
 
 

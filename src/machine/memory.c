@@ -27,6 +27,9 @@ void initMemory(Memory_t *const memory, unsigned const address_width) {
   memory->page_size = 0x01 << memory->page_offset_width;
   memory->page_count = 0x01 << memory->page_index_width;
 
+  memory->page_offset_mask = memory->page_size - 1;
+  memory->page_index_mask = (memory->page_count - 1) << memory->page_offset_width;
+
   /* Allocate memory for page table */
   memory->pages = (void*)malloc(memory->page_count * sizeof(void*));
 
