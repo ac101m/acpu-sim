@@ -2,6 +2,10 @@
 #define ACPU_SIM_MEMORY_INCLUDED
 
 
+/* Standard */
+#include <stdint.h>
+
+
 typedef struct {
   unsigned size;
   unsigned page_size;
