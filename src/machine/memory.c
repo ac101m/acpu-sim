@@ -57,3 +57,42 @@ void freeMemory(Memory_t *const memory) {
   /* Free page table */
   free(memory->pages);
 }
+
+
+/* Get pointer to page for given address */
+inline uint32_t getPageIndex(Memory_t *const memory, uint32_t const address) {
+  return (address & memory->page_index_mask) >> memory->page_offset_width;
+}
+
+
+/* Get page offset for given address */
+inline uint32_t getPageOffset(Memory_t *const memory, uint32_t const address) {
+  return address & memory->page_offset_mask;
+}
+
+
+/* Get a page, if the requested page isn't allocated, allocate it */
+inline uint8_t *getPage(Memory_t *const memory, uint32_t const page_index) {
+  if(memory->pages[page_index] == NULL) {
+    memory->pages[page_index] = (uint8_t*)malloc(memory->page_size * sizeof(uint8_t));
+  }
+  return memory->pages[page_index];
+}
+
+
+/* Check alignment and  of address */
+inline void checkAddress(Memory_t *const memory, uint32_t const address, uint32_t const lsb_mask) {
+  uint32_t const address_mask = memory->address_mask & (~lsb_mask);
+
+  /* Check address validity using combined mask */
+  if(address & address_mask) {
+    if(address & lsb_mask) {
+      printf("Memory Error! misaligned memory access.\n");
+    }
+    if(address & (~memory->address_mask)) {
+      printf("Memory Error! access beyond memory limits.\n");
+    }
+    exit(1);
+  }
+}
+
