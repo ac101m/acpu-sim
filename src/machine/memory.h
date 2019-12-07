@@ -18,8 +18,8 @@ typedef struct {
   uint32_t address_mask;
   uint32_t page_offset_mask;
   uint32_t page_index_mask;
-  
-  uint8_t **pages;
+
+  void **pages;
 } Memory_t;
 
 

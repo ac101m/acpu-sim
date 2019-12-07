@@ -35,7 +35,7 @@ void initMemory(Memory_t *const memory, unsigned const address_width) {
   memory->page_index_mask = (memory->page_count - 1) << memory->page_offset_width;
 
   /* Allocate memory for page table */
-  memory->pages = (uint8_t**)malloc(memory->page_count * sizeof(uint8_t*));
+  memory->pages = (void **)malloc(memory->page_count * sizeof(void *));
 
   /* Initialise page pointers to NULL */
   for(unsigned i = 0; i < memory->page_count; i++) {
@@ -72,9 +72,9 @@ inline uint32_t getPageOffset(Memory_t *const memory, uint32_t const address) {
 
 
 /* Get a page, if the requested page isn't allocated, allocate it */
-inline uint8_t *getPage(Memory_t *const memory, uint32_t const page_index) {
+inline void *getPage(Memory_t *const memory, uint32_t const page_index) {
   if(memory->pages[page_index] == NULL) {
-    memory->pages[page_index] = (uint8_t*)malloc(memory->page_size * sizeof(uint8_t));
+    memory->pages[page_index] = (void *)malloc(memory->page_size);
   }
   return memory->pages[page_index];
 }
