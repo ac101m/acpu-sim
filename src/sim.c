@@ -11,9 +11,6 @@
 #define ACPU_SIM_DEFAULT_BINARY_NAME "program.bin"
 #define ACPU_SIM_DEFAULT_ADDRESS_BITS 32
 
-/* Other constants */
-#define ACPU_SIM_MAX_ADDRESS_BITS 32
-
 
 int main(int argc, char** argv) {
   char* binary_file = ACPU_SIM_DEFAULT_BINARY_NAME;
@@ -30,9 +27,6 @@ int main(int argc, char** argv) {
   /* Number of address bits to use */
   if(argc > 2) {
     address_width = atoi(argv[2]);
-    if(address_width > ACPU_SIM_MAX_ADDRESS_BITS) {
-      printf("Error, the maximum allowed address bit count is %d\n", ACPU_SIM_MAX_ADDRESS_BITS);
-    }
   }
 
   /* Create memory of the apropriate size */
