@@ -30,6 +30,8 @@ int main(int argc, char** argv) {
   }
 
   /* Create memory of the apropriate size */
+  Memory_t memory;
+  initMemory(&memory, address_width);
 
   /* Open the binary file and load into memory */
 
