@@ -96,3 +96,50 @@ inline void checkAddress(Memory_t *const memory, uint32_t const address, uint32_
   }
 }
 
+
+/* Load 32 bit word */
+uint32_t read32(Memory_t *const memory, uint32_t const address) {
+  checkAddress(memory, address, 0x03);
+  void *const page = getPage(memory, getPageIndex(memory, address));
+  return *((uint32_t *)(page + getPageOffset(memory, address)));
+}
+
+
+/* Load 16 bit word */
+uint16_t read16(Memory_t *const memory, uint32_t const address) {
+  checkAddress(memory, address, 0x01);
+  void *const page = getPage(memory, getPageIndex(memory, address));
+  return *((uint16_t*)(page + getPageOffset(memory, address)));
+}
+
+
+/* Load 8 bit word */
+uint8_t read8(Memory_t *const memory, uint32_t const address) {
+  checkAddress(memory, address, 0x00);
+  void *const page = getPage(memory, getPageIndex(memory, address));
+  return *((uint8_t*)(page + getPageOffset(memory, address)));
+}
+
+
+/* Store 32 bit word */
+void write32(Memory_t *const memory, uint32_t const address, uint32_t const data) {
+  checkAddress(memory, address, 0x03);
+  void *const page = (uint32_t*)getPage(memory, getPageIndex(memory, address));
+  *((uint32_t*)(page + getPageOffset(memory, address))) = data;
+}
+
+
+/* Store 16 bit word */
+void write16(Memory_t *const memory, uint32_t const address, uint16_t const data) {
+  checkAddress(memory, address, 0x01);
+  void *const page = getPage(memory, getPageIndex(memory, address));
+  *((uint16_t*)(page + getPageOffset(memory, address))) = data;
+}
+
+
+/* Store 8 bit word */
+void write8(Memory_t *const memory, uint32_t const address, uint8_t const data) {
+  checkAddress(memory, address, 0x00);
+  void *const page = getPage(memory, getPageIndex(memory, address));
+  *((uint8_t*)(page + getPageOffset(memory, address))) = data;
+}

@@ -27,5 +27,15 @@ typedef struct {
 void initMemory(Memory_t *const memory, unsigned const address_width);
 void freeMemory(Memory_t *const memory);
 
+/* Loads */
+uint32_t read32(Memory_t *const memory, uint32_t const address);
+uint16_t read16(Memory_t *const memory, uint32_t const address);
+uint8_t read8(Memory_t *const memory, uint32_t const address);
+
+/* Stores */
+void write32(Memory_t *const memory, uint32_t const address, uint32_t const data);
+void write16(Memory_t *const memory, uint32_t const address, uint16_t const data);
+void write8(Memory_t *const memory, uint32_t const address, uint8_t const data);
+
 
 #endif // ACPU_SIM_MEMORY_INCLUDED
