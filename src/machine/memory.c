@@ -7,7 +7,7 @@
 
 
 /* Memory */
-#define ACPU_SIM_MEMORY_MAX_ADDRESS_WIDTH 32
+#define ACPU_SIM_MEMORY_MAX_ADDRESS_WIDTH 31
 
 
 /* Initialises a memory space */
