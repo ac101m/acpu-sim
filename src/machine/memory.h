@@ -7,6 +7,8 @@ typedef struct {
   unsigned page_count;
   unsigned page_size;
   void **pages;
+  uint32_t page_offset_width;
+  uint32_t page_index_width;
 } Memory_t;
 
 

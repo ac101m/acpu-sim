@@ -20,12 +20,12 @@ void initMemory(Memory_t *const memory, unsigned const address_width) {
   }
 
   /* Break address field into page and offset */
-  unsigned page_address_width = address_width / 2;
-  unsigned page_index_width = address_width - page_address_width;
+  memory->page_offset_width = address_width / 2;
+  memory->page_index_width = address_width - memory->page_offset_width;
 
   memory->size = 0x01 << address_width;
-  memory->page_count = 0x01 << page_index_width;
-  memory->page_size = 0x01 << page_address_width;
+  memory->page_size = 0x01 << memory->page_offset_width;
+  memory->page_count = 0x01 << memory->page_index_width;
 
   /* Allocate memory for page table */
   memory->pages = (void*)malloc(memory->page_count * sizeof(void*));
