@@ -31,7 +31,7 @@ void initMemory(Memory_t *const memory, unsigned const address_width) {
   memory->page_index_mask = (memory->page_count - 1) << memory->page_offset_width;
 
   /* Allocate memory for page table */
-  memory->pages = (void*)malloc(memory->page_count * sizeof(void*));
+  memory->pages = (uint8_t**)malloc(memory->page_count * sizeof(uint8_t*));
 
   /* Initialise page pointers to NULL */
   for(unsigned i = 0; i < memory->page_count; i++) {

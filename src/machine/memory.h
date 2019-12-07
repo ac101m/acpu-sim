@@ -6,11 +6,11 @@ typedef struct {
   unsigned size;
   unsigned page_count;
   unsigned page_size;
-  void **pages;
   uint32_t page_offset_width;
   uint32_t page_index_width;
   uint32_t page_offset_mask;
   uint32_t page_index_mask;
+  uint8_t **pages;
 } Memory_t;
 
 
