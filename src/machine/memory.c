@@ -11,7 +11,7 @@
 
 
 /* Initialises a memory space */
-void initMemory(Memory_t * const memory, unsigned const address_width) {
+void initMemory(Memory_t *const memory, unsigned const address_width) {
 
   /* Check address width for correctness */
   if(address_width > ACPU_SIM_MEMORY_MAX_ADDRESS_WIDTH) {
@@ -38,7 +38,7 @@ void initMemory(Memory_t * const memory, unsigned const address_width) {
 
 
 /* Free all allocated pages */
-void freeMemory(Memory_t * const memory) {
+void freeMemory(Memory_t *const memory) {
 
   /* Free page memory for all used pages */
   for(unsigned i = 0; i < memory->page_count; i++) {
