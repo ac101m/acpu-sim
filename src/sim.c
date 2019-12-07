@@ -9,7 +9,7 @@
 
 /* Default configurations for the simulator */
 #define ACPU_SIM_DEFAULT_BINARY_NAME "program.bin"
-#define ACPU_SIM_DEFAULT_ADDRESS_BITS 32
+#define ACPU_SIM_DEFAULT_ADDRESS_BITS 24
 
 
 int main(int argc, char** argv) {
