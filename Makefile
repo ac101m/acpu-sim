@@ -17,7 +17,7 @@ INC_FLAGS ?= -Iinclude -Isrc
 LD_FLAGS ?=
 
 # Enumerate sources
-SRCS_NOMAIN := $(shell find $(SRC_DIR) -mindepth 3 -name *.c)
+SRCS_NOMAIN := $(shell find $(SRC_DIR) -mindepth 2 -name *.c)
 SRCS_TEST := $(SRCS_NOMAIN) src/test.c
 SRCS_SIM := $(SRCS_NOMAIN) src/sim.c
 OBJS_RELEASE := $(SRCS_SIM:%=$(OBJ_DIR)/release/%.o)
